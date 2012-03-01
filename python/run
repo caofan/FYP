@@ -1,0 +1,151 @@
+#!/usr/bin/bash
+
+INPUT=real-cuff-small-17OCT-ann-1-both
+
+ROOT=../comparison/cuff-small/
+SP=../outputs/splicemap/real-cuff-small
+RB=../outputs/rawbin/$INPUT
+TP=../outputs/tophat/real-cuff-small
+
+SPJ=$SP/junction_color.bed
+RBJ=$RB/junctions.bed
+echo $RBJ
+TPJ=$TP/junctions.bed
+
+REF=../mm9.refFlat.bed
+EST=../mm9.all_est.bed
+
+OUT=../comparison/$INPUT
+
+mkdir -p $OUT
+
+echo "========Comparing Rawbin against RefSeq========"
+python26 findNovelJunctions.py -r $REF -i $RBJ > /dev/null
+mv $RBJ.same.bed $OUT/rawbin.refseq.same.bed
+mv $RBJ.new.bed $OUT/rawbin.refseq.new.bed
+
+
+#echo "========Comparing SpliceMap against RefSeq========"
+#python26 findNovelJunctions.py -r $REF -i $SPJ > /dev/null
+#mv $SPJ.same.bed $OUT/splice.refseq.same.bed
+#mv $SPJ.new.bed $OUT/splice.refseq.new.bed
+
+
+#echo "========Comparing Tophat against RefSeq========"
+#python26 findNovelJunctions.py -r $REF -i $TPJ > /dev/null
+#mv $TPJ.same.bed $OUT/tophat.refseq.same.bed
+#mv $TPJ.new.bed $OUT/tophat.refseq.new.bed
+
+
+echo "========Comparing Rawbin against EST========"
+python26 findNovelJunctions.py -r $EST -i $RBJ > /dev/null
+mv $RBJ.same.bed $OUT/rawbin.est.same.bed
+mv $RBJ.new.bed $OUT/rawbin.est.new.bed
+
+
+#echo "========Comparing SpliceMap against EST========"
+#python26 findNovelJunctions.py -r $EST -i $SPJ > /dev/null
+#mv $SPJ.same.bed $OUT/splice.est.same.bed
+#mv $SPJ.new.bed $OUT/splice.est.new.bed
+
+
+#echo "========Comparing Tophat against EST========"
+#python26 findNovelJunctions.py -r $EST -i $TPJ > /dev/null
+#mv $TPJ.same.bed $OUT/tophat.est.same.bed
+#mv $TPJ.new.bed $OUT/tophat.est.new.bed
+
+
+echo "========Getting same juncs for Rawbin, SpliceMap, Refseq========"
+python26 findNovelJunctions.py -r $OUT/rawbin.refseq.same.bed -i $ROOT/splice.refseq.same.bed > /dev/null
+mv $ROOT/splice.refseq.same.bed.same.bed $OUT/rawbin.splice.refseq.same.bed
+rm $ROOT/splice.refseq.same.bed.new.bed
+
+
+echo "========Getting same juncs not validated by Refseq by Rawbin, SpliceMap=========="
+python26 findNovelJunctions.py -r $OUT/rawbin.refseq.new.bed -i $ROOT/splice.refseq.new.bed > /dev/null
+mv $ROOT/splice.refseq.new.bed.same.bed $OUT/rawbin.splice.refseq.new.bed
+rm $ROOT/splice.refseq.new.bed.new.bed
+
+
+#echo "========Getting same juncs for Rawbin, Tophat, Refseq========"
+#python26 findNovelJunctions.py -r $OUT/rawbin.refseq.same.bed -i $ROOT/tophat.refseq.same.bed > /dev/null
+#mv $ROOT/tophat.refseq.same.bed.same.bed $OUT/rawbin.tophat.refseq.same.bed
+#rm $ROOT/tophat.refseq.same.bed.new.bed
+
+
+#echo "========Getting same juncs not validated by Refseq by Rawbin, Tophat=========="
+#python26 findNovelJunctions.py -r $OUT/rawbin.refseq.new.bed -i $ROOT/tophat.refseq.new.bed > /dev/null
+#mv $ROOT/tophat.refseq.new.bed.same.bed $OUT/rawbin.tophat.refseq.new.bed
+#rm $ROOT/tophat.refseq.new.bed.new.bed
+
+
+#echo "========Getting same juncs for SpliceMap, Tophat, Refseq========"
+#python26 findNovelJunctions.py -r $ROOT/splice.refseq.same.bed -i $ROOT/tophat.refseq.same.bed > /dev/null
+#mv $ROOT/tophat.refseq.same.bed.same.bed $OUT/splice.tophat.refseq.same.bed
+#rm $OUT/tophat.refseq.same.bed.new.bed
+
+
+#echo "========Getting same juncs not validated by Refseq by SpliceMap, Tophat=========="
+#python26 findNovelJunctions.py -r $OUT/tophat.refseq.new.bed -i $OUT/splice.refseq.new.bed > /dev/null
+#mv $OUT/splice.refseq.new.bed.same.bed $OUT/splice.tophat.refseq.new.bed
+#rm $OUT/splice.refseq.new.bed.new.bed
+
+
+#echo "========Getting same juncs for Rawbin, SpliceMap, Tophat, Refseq========"
+#python26 findNovelJunctions.py -r $OUT/rawbin.splice.refseq.same.bed -i $OUT/rawbin.tophat.refseq.same.bed > /dev/null
+#mv $OUT/rawbin.tophat.refseq.same.bed.same.bed $OUT/rawbin.splice.tophat.refseq.same.bed
+#rm $OUT/rawbin.tophat.refseq.same.bed.new.bed
+
+
+#echo "========Getting same juncs not validated by Refseq by Rawbin, SpliceMap, Tophat=========="
+#python26 findNovelJunctions.py -r $OUT/rawbin.splice.refseq.new.bed -i $OUT/rawbin.tophat.refseq.new.bed > /dev/null
+#mv $OUT/rawbin.tophat.refseq.new.bed.same.bed $OUT/rawbin.splice.tophat.refseq.new.bed
+#rm $OUT/rawbin.tophat.refseq.new.bed.new.bed
+
+
+echo "========Getting same juncs for Rawbin, SpliceMap, EST========"
+python26 findNovelJunctions.py -r $OUT/rawbin.est.same.bed -i $ROOT/splice.est.same.bed > /dev/null
+mv $ROOT/splice.est.same.bed.same.bed $OUT/rawbin.splice.est.same.bed
+rm $ROOT/splice.est.same.bed.new.bed
+
+
+echo "========Getting same juncs not validated by EST for Rawbin, SpliceMap========"
+python26 findNovelJunctions.py -r $OUT/rawbin.est.new.bed -i $ROOT/splice.est.new.bed > /dev/null
+mv $ROOT/splice.est.new.bed.same.bed $OUT/rawbin.splice.est.new.bed
+rm $ROOT/splice.est.new.bed.new.bed
+
+
+#echo "========Getting same juncs for Rawbin, Tophat, EST========"
+#python26 findNovelJunctions.py -r $OUT/rawbin.est.same.bed -i $ROOT/tophat.est.same.bed > /dev/null
+#mv $ROOT/tophat.est.same.bed.same.bed $OUT/rawbin.tophat.est.same.bed
+#rm $ROOT/tophat.est.same.bed.new.bed
+
+
+#echo "========Getting same juncs not validated by EST for Rawbin, Tophat========"
+#python26 findNovelJunctions.py -r $OUT/rawbin.est.new.bed -i $ROOT/tophat.est.new.bed > /dev/null
+#mv $ROOT/tophat.est.new.bed.same.bed $OUT/rawbin.tophat.est.new.bed
+#rm $ROOT/tophat.est.new.bed.new.bed
+
+
+#echo "========Getting same juncs for SpliceMap, Tophat, EST========"
+#python26 findNovelJunctions.py -r $OUT/tophat.est.same.bed -i $OUT/splice.est.same.bed > /dev/null
+#mv $OUT/splice.est.same.bed.same.bed $OUT/splice.tophat.est.same.bed
+#rm $OUT/splice.est.same.bed.new.bed
+
+
+#echo "========Getting same juncs not validated by EST for SpliceMap, Tophat========"
+#python26 findNovelJunctions.py -r $OUT/tophat.est.new.bed -i $OUT/splice.est.new.bed > /dev/null
+#mv $OUT/splice.est.new.bed.same.bed $OUT/splice.tophat.est.new.bed
+#rm $OUT/splice.est.new.bed.new.bed
+
+
+#echo "========Getting same juncs for Rawbin, SpliceMap, Tophat, EST========"
+#python26 findNovelJunctions.py -r $OUT/rawbin.est.same.bed -i $ROOT/splice.tophat.est.same.bed > /dev/null
+#mv $ROOT/splice.tophat.est.same.bed.same.bed $OUT/rawbin.splice.tophat.est.same.bed
+#rm $ROOT/splice.tophat.est.same.bed.new.bed
+
+
+#echo "========Getting same juncs not validated by EST for Rawbin, SpliceMap, Tophat========"
+#python26 findNovelJunctions.py -r $OUT/rawbin.est.new.bed -i $ROOT/splice.tophat.est.new.bed > /dev/null
+#mv $ROOT/splice.tophat.est.new.bed.same.bed $OUT/rawbin.splice.tophat.est.new.bed
+#rm $ROOT/splice.tophat.est.new.bed.new.bed

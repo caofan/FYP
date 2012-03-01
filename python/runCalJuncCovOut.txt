@@ -1,0 +1,373 @@
+chr1
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+30	46	14	29	8	3	3	80
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+79	36	14	36	6	14	6	80
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+38	45	14	31	8	8	4	80
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+14	52	14	14	10	2	2	80
+
+chr2
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+107	118	12	91	8	1	1	165
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+165	92	12	92	4	12	4	165
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+118	96	12	76	5	12	5	165
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+43	118	12	37	6	0	0	165
+
+chr3
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+17	24	7	14	6	4	4	46
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+46	21	7	21	6	7	6	46
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+20	23	7	16	5	5	4	46
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+5	21	7	5	3	2	2	46
+
+chr4
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+74	83	7	72	2	2	2	108
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+108	76	7	76	2	7	2	108
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+36	39	7	27	2	6	2	108
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+19	75	7	19	3	2	2	108
+
+chr5
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+38	53	9	34	5	1	1	78
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+78	37	9	37	2	9	2	78
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+39	42	9	27	5	7	3	78
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+7	50	9	6	5	1	1	78
+
+chr6
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+33	39	9	29	2	1	0	72
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+71	34	9	34	1	8	1	72
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+40	39	9	32	2	7	2	72
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+12	40	9	11	3	0	0	72
+
+chr7
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+65	79	14	59	9	3	3	111
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+111	63	14	63	7	14	7	111
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+75	70	14	57	9	13	8	111
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+29	80	14	25	10	1	1	111
+
+chr8
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+17	24	6	12	2	0	0	54
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+54	17	6	17	1	6	1	54
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+22	25	6	14	2	5	1	54
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+11	30	6	10	3	0	0	54
+
+chr9
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+28	31	11	24	8	4	4	55
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+53	26	11	26	5	10	5	55
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+32	31	11	26	8	8	6	55
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+17	36	11	16	9	4	4	55
+
+chr10
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+20	23	14	17	4	2	2	55
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+54	19	14	19	4	13	4	55
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+30	22	14	19	3	10	3	55
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+8	29	14	8	5	2	2	55
+
+chr11
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+45	58	15	35	10	1	0	93
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+93	40	15	40	4	15	4	93
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+57	50	15	38	7	14	7	93
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+18	59	15	14	8	0	0	93
+
+chr12
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+14	20	5	13	2	0	0	32
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+32	14	5	14	1	5	1	32
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+16	20	5	14	2	3	2	32
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+7	21	5	7	2	0	0	32
+
+chr13
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+9	14	5	9	4	2	2	23
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+23	11	5	11	3	5	3	23
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+11	12	5	9	4	4	3	23
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+6	14	5	6	4	3	3	23
+
+chr14
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+47	52	8	43	6	2	2	66
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+64	49	8	49	5	7	5	66
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+53	29	8	25	4	6	3	66
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+6	19	8	5	6	0	0	66
+
+chr15
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+15	21	9	15	3	2	2	41
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+40	18	9	18	3	8	3	41
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+20	18	9	15	2	7	2	41
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+9	20	9	9	4	2	2	41
+
+chr16
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+11	17	3	11	2	0	0	25
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+24	12	3	11	1	2	0	25
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+12	15	3	10	2	2	1	25
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+7	16	3	6	2	0	0	25
+
+chr17
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+32	38	7	31	5	3	3	57
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+56	37	7	36	3	6	2	57
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+34	35	7	30	5	6	5	57
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+8	37	7	8	5	2	2	57
+
+chr18
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+11	14	7	11	3	0	0	23
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+21	11	7	10	1	5	0	23
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+14	14	7	12	3	3	1	23
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+7	14	7	7	3	0	0	23
+
+chr19
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+6	8	3	5	1	0	0	15
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+15	5	3	5	0	3	0	15
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+10	8	3	7	1	3	1	15
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+2	9	3	2	1	0	0	15
+
+chrX
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+156	164	5	152	3	0	0	181
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+181	162	5	162	0	5	0	181
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+135	97	5	82	1	5	1	181
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+9	113	5	8	2	0	0	181
+
+chrY
+rawbin
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+1	19	0	1	0	0	0	29
+splicemap
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+29	29	0	29	0	0	0	29
+tophat
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+1	1	0	1	0	0	0	29
+original_reads
+NoSupport	LowCoverage	NotCanonical	AB	BC	AC	ABC	ALL
+1	5	0	1	0	0	0	29
+
+
+----------------------Summary---------------------------
+ACAG   2
+GTAC   8
+GTTC   5
+GTCG   2
+GTAG   764
+GTTG   12
+GTCC   2
+AACC   1
+TATA   1
+ATCA   1
+CTTC   10
+GTGG   6
+AAAA   1
+CAAA   1
+GTTT   3
+CGGT   1
+CTTT   1
+CAAT   1
+GTGT   2
+AACT   1
+GGAA   3
+TTCT   2
+GGTA   4
+ACAA   1
+GGAG   4
+GATT   1
+CTAA   3
+TTAC   4
+CAAG   2
+AATA   1
+TTCA   1
+GACC   2
+GATG   2
+AGCT   1
+CTGA   1
+TTTC   1
+GCCC   1
+GCTC   2
+GCTA   1
+CTAG   4
+ATAA   4
+GCAG   387
+ATAC   88
+GCAC   2
+ATAG   9
+GCTT   1
+TGAG   3
+ATCC   2
+CACC   2
+TGAC   3
+TACA   1
+GGCT   1
+ATAT   14
+CCAG   3
+TAAG   1
+TGCA   1
+TGGC   2
+TAAA   1
+TGTC   2
+CTCT   2
+TCGG   2
+GATA   1
+CCTT   1
+AGCA   2
+GTTA   1
+TCAC   1
+CGCA   1
+TGTT   1
+TCTA   1
+TCCA   3
+
+
+Mapper	No_Support	NoCov	NoSignal	AB	BC	CA	ABC
+Rawbin	776	945	170	707	93	31	29
+SpliceMap	1397	809	170	806	59	161	56
+Tophat	813	731	170	568	80	134	64
+Simulated	245	858	170	224	94	21	21

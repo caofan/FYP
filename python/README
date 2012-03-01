@@ -1,0 +1,28 @@
+Here is a description of the programs in this directory.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+classify.py
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+This program was first intended to sort the junctions that are found by SpliceMap but no by Rawbin.
+This program obtains the junctions that are only supported by multi-mapped reads.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+anchorCov.py
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+The program is used to calculate the anchor coverages of the validated junctions and the non-validated junctions. And output a file that contains the information of up and down coverage for each junction.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+cat.py
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Read a bed file output by Rawbin containing junctions and differentiate the junctions supported by reads and the junctions supported by coverage based on the information in the names of the junctions.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+classify.py
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+This programs takes in command line arguments. Use the -h help to obtain the information. 
+It is meant to classify the reads that are found by SpliceMap.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+unique.py
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Checks if a junction is unique or if there are nearby junctions (+/- 10bp)
