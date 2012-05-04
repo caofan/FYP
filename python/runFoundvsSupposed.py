@@ -2,11 +2,11 @@
 import os,sys
 import re
 i=600
-rawbinDir = "/home/Ken/caofan/outputs/rawbin/simulated-fixed.tmp"
+rawbinDir = "/home/Ken/caofan/outputs/rawbin/simulated-17OCT-trans"
 spliceMapDir = "/home/Ken/caofan/outputs/splicemap/simulated"
 tophatDir = '/home/Ken/caofan/outputs/tophat/simulated'
 
-rawbinOutDir = "/home/Ken/caofan/supposedVSfound/rawbin/simulated-fixed.tmp"
+rawbinOutDir = "/home/Ken/caofan/supposedVSfound/rawbin/simulated-17OCT-trans"
 spliceMapOutDir = "/home/Ken/caofan/supposedVSfound/splicemap/simulated"
 tophatOutDir = "/home/Ken/caofan/supposedVSfound/tophat/simulated"
 # the type of reference can be refgene or EST. Needs to be specified

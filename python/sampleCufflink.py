@@ -25,18 +25,14 @@ def generateReads(numReads,outFileName):
         count = 0
         numTrack = 0
         rowsWritten = 0
-        lastRowsWritten = 0
         for r,k in zip(infile1,infile2):
             if count/4 +1 == numbers[numTrack]:
                 out.write(r)
                 out2.write(k)
                 rowsWritten+=1
             count += 1
-            if rowsWritten != lastRowsWritten and rowsWritten % 4 == 0:
-                lastRowsWritten = rowsWritten
+            if rowsWritten % 4 == 0:
                 numTrack+=1
-            if numTrack >= len(numbers):
-                break
         print rowsWritten, ' from ', "SRR0379"+str(i)
     out.close()
     out2.close()

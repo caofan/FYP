@@ -1,14 +1,16 @@
 import os,sys
 import readBed
+import re
 
 def removeRandom(records):
 	result = []
+	pat = re.compile(r'^chr(\d+|X|Y|M)$')
 	for r in records:
-		if 'random' in r['chrom']:
+		if pat.match(r['chrom']):
+			result.append(r)
+		else:
 			print r['chrom']
 			continue
-		else:
-			result.append(r)
 	return result
 
 
@@ -19,15 +21,15 @@ class ExonNode:
 		self.nexts = set()
 		self.prevCount = 0
 		self.reached = 0
-	
+
 	def addNext(self,next):
 		initLength = len(self.nexts)
 		self.nexts.add(next)
 		return len(self.nexts)-initLength > 0
-	
+
 	def addPrev(self):
 		self.prevCount+=1
-	
+
 	def getPrev(self):
 		return self.prevCount
 
@@ -71,7 +73,7 @@ def loadExons(records):
 				exons[tempKey] = ExonNode(tempKey)
 			if lastExonKey != '$':
 				if exons[lastExonKey].addNext(tempKey):
-					exons[tempKey].addPrev() 
+					exons[tempKey].addPrev()
 			lastExonKey = tempKey
 		#if lastExonKey != '' and '<' not in exons[lastExonKey]:
 		#	exons[lastExonKey].append('<')
@@ -102,8 +104,8 @@ def writeExon(out,exon,exons):
 	else:
 		exonName = exon
 		out.write('\t'.join([exonChrom,exonStart,exonEnd,exonName,'0',exonStrand,exonStart,exonEnd,'0','1',exonSize,'0\n']))
-		
-		
+
+
 
 # The writing of the exons should follow the strategy that a node has to wait
 # all its preceding exons reach before proceed.
@@ -118,8 +120,13 @@ def writeToFile(exons, out):
 
 
 if __name__=='__main__':
-	records = readBed.BEDReader("../../mm9.refFlat.bed")
-	outfile = open("../../mm9.refFlat.exons.new.bed",'w')
+	if len(sys.argv) != 3 && len(sys.argv) != 5:
+		print "Usage: python getExons.py bedInput bedOutput <fastaIn> <fastaOut>\n"
+		sys.exit(1)
+	records = readBed.BEDReader(sys.argv[1])
+	outfile = open(sys.argv[2],'w')
 	result = removeRandom(records)
 	exons = loadExons(result)
 	writeToFile(exons, outfile)
+	if len(sys.argv) == 5:
+		os.system("fastaFromBed -fi %s -bed %s -fo %s -name"%(sys.argv[3],sys.argv[2],sys.argv[4]))
