@@ -1,1 +1,0 @@
-['../splicemap/good_hits.bam']
