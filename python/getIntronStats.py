@@ -1,15 +1,14 @@
-import os,sys
+import sys
 sys.path.append('.')
 import readBed
 import pylab as plt
-from scipy import arange, optimize, special
 
 
 refgeneFile = '../mm9.refFlat.bed'
 outFile = '../intronSizes.txt'
 if __name__=='__main__':
     introns = {}
-	exons = {}
+    exons = {}
     handler = readBed.BEDReader(refgeneFile)
     for r in handler:
         n = int(r['blockCount'])
