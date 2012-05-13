@@ -101,7 +101,7 @@ if __name__=="__main__":
         for n in args.l:
             el = getNumLargerThan(exons,n)
             il = getNumLargerThan(introns,n)
-            print '\t%d\t%d\t%d'%(n,el,el*1.0/et,il,il*1.0/it)
+            print '\t%d\t%d\t%f\t%d\t%f'%(n,el,el*1.0/et,il,il*1.0/it)
 
 
 

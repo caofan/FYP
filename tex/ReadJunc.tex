@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{algorithmic}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Floor}[1]{\ensuremath{\lfloor #1\rfloor}}
+\newcommand{\Ceil}[1]{\ensuremath{\lceil #1\rceil}}
+
+
+\begin{document}
+
+%Structure
+\begin{figure}[h]
+\begin{center}
+\fbox{\parbox{\textwidth}{%
+
+\noindent $ReadJunc$
+\begin{algorithmic}[1]
+\STATE $tuple(p,q,r)\ Key$;
+\STATE $Set\{ReadJunc\}\ Nexts;$
+\end{algorithmic}
+}} %% end of fbox
+
+\end{center}
+\caption{Data structure $ReadJunc$ for storing alignments.}
+\label{datastruct:readjuncs}
+\end{figure}
+
+\section{Data structure}
+$ReadJunc$ as shown in Figure-\ref{datastruct:readjuncs} is a recursive data structure used to store the alignments found by $Find_All_Juncs$. It has two components, the $key$ and a set containing its descendants. The $key$ is a tuple of three elements, $p, q and r$, where $(p,q)$ define the starting and ending coordinates of the junction in the reference genome, respectively. The $p$ component is 0-based and the $q$ component is 1-based. Component $r$ is the size of the left anchor of the junction.
+
+
+%Find_All_Junc and Seek_Junc
+\begin{figure}[h]
+\begin{center}
+\fbox{\parbox{\textwidth}{%
+
+\noindent $Find\_All\_Junc(R,\Phi=(G,l,L_{min},k,D_1..D_2))$
+\begin{algorithmic}[1]
+\STATE $Min\_Juncs=\infty$;
+\STATE $ReadJunc\ H$;
+\STATE $H.Key=(0,0,0)$;
+\STATE $H.Nexts=Seek\_Junc(R,1,\Phi,\{[1,|G|]\},0)$;
+\STATE $Transcripts=\emptyset$;
+\STATE $Enum\_Transcripts(H,T,0,Min\_Junc,Transcripts)$
+\STATE $Remove\_Duplicates(Transcripts)$;
+\end{algorithmic}
+}} %% end of fbox
+
+\fbox{\parbox{\textwidth}{%
+\noindent $Seek\_Junc(S,a,\Phi,X,L)$
+\begin{algorithmic}[1]
+\STATE $Juncs=\emptyset;T_1=T_2=A=\emptyset$;
+\IF {$a=|S|$}
+	\STATE $Min\_Junc=L$;
+	\RETURN $Juncs$;
+\ENDIF
+
+%extend exon..
+\STATE $A=Extend(S[a,\min(a+l,|S|)],X,\Phi)$
+\IF {$A\ne\emptyset$}
+	\STATE $Juncs=Seek\_Junc(S,\min(a+l,|S|),\Phi,A,L)$;
+\ENDIF
+\IF {$a>1$ and $|S|-a>l$}
+	\IF {$X$ contains only genomic locations}
+		\STATE $X=X-a$;
+	\ELSE
+		\STATE $X=\emptyset$
+	\ENDIF
+	\IF {$L<Min\_Junc$ }
+	%Search for single junctions: junction is in S[a,a+l-1]$..
+		\STATE $T_1=Find\_Single\_Junc(S[1,\min(a+2l-1,|S|)],\Phi,X)$;
+		\FOR {$(p,q,r)\in T_1$}
+			\STATE $ReadJunc H$;
+			\STATE $ReadJunc H.key=(p,q,r)$;
+			\STATE $H.Nexts=Seek\_Junc(S[r+1,|S|],1,\Phi,\{q\},L+1)$;
+			\STATE $Hits.add(H)$;
+		\ENDFOR
+	\ENDIF
+	\IF {$L+1<Min\_Junc$ and $L_{min}<2l$}
+	%Search for double junctions..
+		\FOR {$i=1,..,2l-L_{min}-1$ \bf{step} $L_{min}-l$}
+			\STATE $T_2=T_2\cup Find\_Single\_Junc(S[1,\min(a+(L_{min}-l)+i,|S|)],\Phi,X)$;
+		\ENDFOR
+		\FOR {$(p,q,r)\in T_2$}
+			\STATE $ReadJunc H$;
+			\STATE $ReadJunc H.key=(p,q,r)$;
+			\STATE $H.Nexts=Seek\_Junc(S[r+1,|S|],1,\Phi,\{q\},L+1)$;
+			\STATE $Hits.add(H)$;
+		\ENDFOR
+	\ENDIF
+\ENDIF
+\IF {$A=\emptyset$ and $T_1=\emptyset$ and $T_2=\emptyset$}
+	\RETURN $NULL$;
+\ENDIF
+
+\RETURN $Juncs$;
+\end{algorithmic}
+}} %% end of fbox
+
+\end{center}
+\caption{Algorithms $Find\_All\_Junc$ and $Seek\_Junc$.}
+\label{algo:all_junc}
+\end{figure}
+
+
+%Enumerate Transcripts.
+\begin{figure}[h]
+\begin{center}
+\fbox{\parbox{\textwidth}{%
+
+\noindent $Enum\_Transcripts(H,T,L,Min\_Junc,Transcripts)$
+\begin{algorithmic}[1]
+\IF {$L>Min\_Junc$ or $H.Nexts=NULL$}
+	\RETURN
+\ENDIF
+\IF {$H.Nexts=\emptyset$}
+	\IF {$L=Min\_Junc$}
+		\STATE store $T$ in $Transcripts$;
+	\ENDIF
+	\RETURN;
+\ENDIF
+\FOR {each $J$ in $H.Nexts$}
+	\STATE $T[L]=J.Key$;
+	\STATE $Enum\_Transcripts(J,T,L+1,Min\_Junc,Transcripts)$;
+\ENDFOR
+\end{algorithmic}
+}} %% end of fbox
+\end{center}
+\caption{Algorithm $Enum\_Transcripts$.}
+\label{algo:enum_trans}
+\end{figure}
+\end{document}
