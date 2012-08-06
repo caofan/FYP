@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Annotations	rnaseq.cpp	/^map <unsigned, Ann_Info> Annotations;$/;"	v
+COMPRESS	rnaseq.cpp	/^char COMPRESS;$/;"	v
+CONVERSION_FACTOR	rnaseq.cpp	/^unsigned CONVERSION_FACTOR;$/;"	v
+Char_To_Code	rnaseq.cpp	/^char Char_To_Code[256];$/;"	v
+Char_To_CodeC	rnaseq.cpp	/^char Char_To_CodeC[256];$/;"	v
+Conversion_Factor	rnaseq.cpp	/^unsigned Conversion_Factor;$/;"	v
+EXONGAP	rnaseq.cpp	/^int EXONGAP;$/;"	v
+Find_Pairings	rnaseq.cpp	/^int Find_Pairings(int & Pairs_Index,SARange* MF_Pre_Hits,SARange* MF_Suf_Hits,PAIR* &  Pairs, char* Read,int STRINGLENGTH,int & Final_Juncs_Ptr,Junction *Final_Juncs,int & Min_Mismatch,int Mis_In_AnchorL, int Mis_In_AnchorR,bool partial=false)$/;"	f
+Find_Single_Junc	rnaseq.cpp	/^int Find_Single_Junc(char* Read,char* Converted_Read,MEMX & MF_Pre,MEMX & MF_Suf,int STRINGLENGTH,LEN & L,PAIR* & Pairs,Junction *Final_Juncs,int & Err)$/;"	f
+Find_Two_Junc	rnaseq.cpp	/^int Find_Two_Junc(char* Read,char* Converted_Read,MEMX & MF_Pre,MEMX & MF_Suf,int STRINGLENGTH,LEN & L,PAIR* & Pairs,Junction *Final_Juncs,int & Err)$/;"	f
+INDEX_RESOLUTION	rnaseq.cpp	/^int INDEX_RESOLUTION=30000;$/;"	v
+Init	rnaseq.cpp	/^void Init(BWT *revfmi,unsigned & SOURCELENGTH,PAIR* & Pairs,gzFile & Input_File,gzFile & Mate_File,FILETYPE & File_Info,Parameters & CL,FILE* & OUT,Index_Info & Genome_Files)$/;"	f
+LOG_SUCCESS_FILE	rnaseq.cpp	/^char* LOG_SUCCESS_FILE=NULL;$/;"	v
+Load_All_Indexes	rnaseq.cpp	/^void Load_All_Indexes(Index_Info Genome_Files,BWT* & fwfmi,BWT* & revfmi,MMPool* & mmPool,RANGEINDEX & Range_Index)$/;"	f
+Location_Array	rnaseq.cpp	/^unsigned Location_Array[80];$/;"	v
+Log_SFile	rnaseq.cpp	/^FILE *Log_SFile;$/;"	v
+MAX_MISMATCHES	rnaseq.cpp	/^int MAX_MISMATCHES=1;$/;"	v
+Original_Text	rnaseq.cpp	/^unsigned char* Original_Text;$/;"	v
+Progress_Bar	rnaseq.cpp	/^bool  Progress_Bar(Parameters & CL,unsigned & Number_of_Tags,unsigned & Progress,unsigned & Tag_Count,FILETYPE & File_Info)$/;"	f
+RQ_Hits	rnaseq.cpp	/^unsigned RQ_Hits;$/;"	v
+SA_Blocks	rnaseq.cpp	/^int *SA_Blocks;$/;"	v
+SA_Index	rnaseq.cpp	/^SA* SA_Index;$/;"	v
+fwfmi	rnaseq.cpp	/^BWT *fwfmi,*revfmi;$/;"	v
+main	rnaseq.cpp	/^int main(int argc, char* argv[])$/;"	f
+revfmi	rnaseq.cpp	/^BWT *fwfmi,*revfmi;$/;"	v

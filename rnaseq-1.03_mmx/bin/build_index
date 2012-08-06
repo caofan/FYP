@@ -1,0 +1,55 @@
+#!/bin/sh
+if [ "$2" = "color" ]
+then
+	echo Building Color-Space index
+	./bwtformatdb $1 -p 
+	mv $1.pac $1C.pac
+	rm $1.amb
+	rm $1.sai
+	./filter.pl $1 $1.Filter
+	./b2c.pl $1.Filter $1C
+	rm $1.Filter
+	BASE=$1C
+else
+	BASE=$1
+fi
+
+echo Stripping $BASE and filtering nucleotides...
+tr 'nN' 'cc' <$BASE >$BASE.non
+strip.pl $BASE.non $BASE.bin
+rm rev$BASE.bin
+
+if [ "$2" = "color" ]
+then
+	rm $BASE
+fi
+
+echo Creating FASTA file of Reverse of the Genome...
+reverse -i $BASE.bin -o rev$BASE.bin -b 10000000
+echo ">" > rev$BASE
+cat rev$BASE.bin >> rev$BASE
+rm rev$BASE.bin
+
+echo Creating FM index of reverse genome...
+bwtformatdb rev$BASE
+
+rm rev$BASE
+rm rev$BASE.amb
+rm rev$BASE.ann
+rm rev$BASE.pac
+rm rev$BASE.sai
+echo Creating FM index of the genome...
+bwtformatdb $BASE.non
+rm $BASE.non
+echo Deleting auxilliary files...
+mv $BASE.non.fmv $BASE.fmv
+mv $BASE.non.bwt $BASE.bwt
+mv $BASE.non.sa $BASE.sa
+mv $BASE.non.ann $BASE.ann
+
+rm $BASE.non.amb
+mv $BASE.non.pac $BASE.pac
+rm $BASE.non.sai
+
+ann2loc.pl $BASE.ann
+rm $BASE.ann
