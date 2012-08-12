@@ -124,17 +124,18 @@ int main(int argc, char* argv[])
 			int Err;
 			if(Find_Single_Junc(Head.Tag_Copy,Head.Tag,MF_Pre,MF_Suf,File_Info.STRINGLENGTH,L,Pairs,Final_Juncs,Err))
 			{
-				fprintf(OUT,"%s",Head.Description);
+				fprintf(OUT,"Single %s",Head.Description);
 				for(int i=0;Final_Juncs[i].p!=INT_MAX;i++)
 				{
-					fprintf(OUT,"%s\t%d\t%d\t%d\t%d\n",Final_Juncs[i].Chrom,Final_Juncs[i].p,Final_Juncs[i].q,Final_Juncs[i].Mismatches,Tag_Count);
+					//fprintf(OUT,"%s\t%d\t%d\t%d\t%d\n",Final_Juncs[i].Chrom,Final_Juncs[i].p,Final_Juncs[i].q,Final_Juncs[i].Mismatches,Tag_Count);
 				}
 			}
 			else//Read is not mapped
 			{
+				fprintf(OUT,"Two %s",Head.Description);
 				Find_Two_Junc(Head.Tag_Copy,Head.Tag,MF_Pre,MF_Suf,MF_Mid,File_Info.STRINGLENGTH,L,Pairs,Final_Juncs,Err);
 
-				if(!Err) printf(">%d-%s%s",Tag_Count,Head.Description,Head.Tag_Copy);
+				//if(!Err) printf(">%d-%s%s",Tag_Count,Head.Description,Head.Tag_Copy);
 			}
 
 		}
@@ -210,8 +211,10 @@ int Find_Two_Junc(char* Read,char* Converted_Read,MEMX & MF_Pre,MEMX & MF_Suf,ME
 					continue;
 				}
 				Junction* midPart = extend(Read,1,STRINGLENGTH-RQFACTOR,L1,L2,true);//partially extend the two anchors.
+				int tempCounter = 0;
 				for(int i=0;midPart[i].p!=INT_MAX;i++)
 				{
+					tempCounter += 1;
 					if(true)//check for mismatches
 					{
 						LEN midL; midL.IGNOREHEAD=0;
@@ -221,10 +224,12 @@ int Find_Two_Junc(char* Read,char* Converted_Read,MEMX & MF_Pre,MEMX & MF_Suf,ME
 						Split_Read(midLength,midL);
 						MF_Mid.Hits=0; MF_Mid.Hit_Array_Ptr=0;MF_Mid.Current_Tag=Converted_Mid_Tag; MF_Mid.Hit_Array[0].Start=0;
 						int last_mid_mis = Scan(MF_Mid,MAX_MISMATCHES,midL,fwfmi,revfmi,0,UINT_MAX);//Scan for positions for the mid part;
+						printf("Number of middle hits: %d\n",MF_Mid.Hit_Array_Ptr);
 						//Junction* leftJuncs = extend();
 						//Junction* rightJuncs = extend();
 					}
 				}
+				printf("Number of different middle hits: %d\n",tempCounter);
 			}
 		}
 	}

@@ -17,7 +17,7 @@ struct Junction {
 	bool isCanonical();
 };
 extern unsigned char* Original_Text;
-Junction* extend(char* R, unsigned x, unsigned y, unsigned p, unsigned q, bool partion=false);
+Junction* extend(char* R, unsigned x, unsigned y, unsigned p, unsigned q, bool partial=false);
 void loadPac(char* filename);
 void Get_Bases_ASCII (unsigned Location,int StringLength,char* Org_String);
 #endif
